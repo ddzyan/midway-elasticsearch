@@ -1,6 +1,6 @@
 # 简介
 
-这个是 midway 3.0 elasticsearch 模块
+这个是 midway 3.0 elasticsearch 组件 模块
 
 ## 安装依赖
 
