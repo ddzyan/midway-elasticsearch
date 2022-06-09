@@ -33,6 +33,6 @@
     "typescript": "~4.6.0"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^8.2.1"
+    "@elastic/elasticsearch": "^7.2.1"
   }
 }
