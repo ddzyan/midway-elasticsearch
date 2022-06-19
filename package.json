@@ -1,7 +1,7 @@
 {
   "name": "midway-elasticsearch",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "elasticsearch component for midwayjs",
   "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -11,8 +11,11 @@
     "lint": "mwts check",
     "lint:fix": "mwts fix"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "elasticsearch",
+    "midwayjs"
+  ],
+  "author": "ddzyan",
   "files": [
     "dist/**/*.js",
     "dist/**/*.d.ts",

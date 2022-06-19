@@ -1,16 +1,17 @@
+import { IMidwayContainer } from '@midwayjs/core';
 import { Configuration } from '@midwayjs/decorator';
-import * as DefaultConfig from './config/config.default';
+import { ElasticsearchServiceFactory } from './manager';
 
 @Configuration({
   namespace: 'elasticsearch',
-  importConfigs: [
-    {
-      default: DefaultConfig,
-    },
-  ],
 })
 export class ElasticsearchConfiguration {
-  async onReady() {
-    // TODO something
+  async onReady(container: IMidwayContainer) {
+    await container.getAsync(ElasticsearchServiceFactory);
+  }
+
+  async onStop(container: IMidwayContainer): Promise<void> {
+    const factory = await container.getAsync(ElasticsearchServiceFactory);
+    await factory.stop();
   }
 }
