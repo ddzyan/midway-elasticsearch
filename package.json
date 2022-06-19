@@ -1,6 +1,6 @@
 {
   "name": "midway-elasticsearch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "elasticsearch component for midwayjs",
   "main": "dist/index.js",
   "typings": "index.d.ts",
