@@ -35,15 +35,17 @@ export class ContainerLifeCycle {}
 // src/config/config.default.ts
 export default {
   // ...
-  elasticsearch: {
+  config.elasticsearch = {
     client: {
-      node: 6379, // Redis port
+      node: {
+        url: new URL('http://xxxx:1200'),
+      },
       auth: {
         username: 'elastic',
         password: 'changeme',
       },
     },
-  },
+  };
 };
 ```
 
@@ -62,8 +64,8 @@ export class UserService {
   @Inject()
   elasticsearchService: ElasticsearchService;
 
-  // 创建
-  async create() {
+  //创建或更新索引中的文档,如果目标是索引并且文档已经存在，则请求更新文档并增加其版本
+  async index() {
     await this.elasticsearchService.index({
       index: 'students',
       type: '_doc',
@@ -75,7 +77,7 @@ export class UserService {
     });
   }
 
-  // 获取文档
+  // 返回匹配查询的结果
   async search() {
     await this.elasticsearchService.search({
       index: 'students',
@@ -83,7 +85,7 @@ export class UserService {
     });
   }
 
-  // 更新文档
+  // 使用脚本或部分文档更新文档。
   async update() {
     await this.elasticsearchService.update({
       index: 'students',
